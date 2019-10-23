@@ -43,6 +43,7 @@ class HomeController extends Controller
         return (new StatsExport($stats))->download($this->requestModel.'_'.'prospects_'.$today.'.csv', Excel::CSV, ['Content-Type' => 'text/csv']);
     }
 
+
     public function formData()
     {
         $today = date("Ymd");  

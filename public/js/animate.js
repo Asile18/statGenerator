@@ -1,4 +1,5 @@
 let acc = document.getElementsByClassName("accordion");
+ 
 let i;
 
 for (i = 0; i < acc.length; i++) {
@@ -9,10 +10,11 @@ for (i = 0; i < acc.length; i++) {
 
     /* Toggle between hiding and showing the active panel */
     let panel = this.nextElementSibling;
-    if (panel.style.display === "block") {
+
+    if (panel.style.display === "table") {
       panel.style.display = "none";
     } else {
-      panel.style.display = "block";
+      panel.style.display = "table";
     }
   });
 }

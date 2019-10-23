@@ -13,6 +13,8 @@
     <option {{request('dateFormat') == 'Y-m' ? 'selected' : '' }} name="month" value="Y-m">Year-Month</option>
     <option {{request('dateFormat') == 'Y-m-d' ? 'selected' : '' }} name="day"  value="Y-m-d">Year-Month-Day</option>
 </select>
+
+
 <button type="submit">Rechercher</button>
 <div style="display:flex;">
     <div style="margin: 10px;">

@@ -22,7 +22,7 @@ return [
         | Pre-calculate formulas during export
         |--------------------------------------------------------------------------
         */
-        'pre_calculate_formulas' => false,
+        'pre_calculate_formulas' => true,
 
         /*
         |--------------------------------------------------------------------------
@@ -35,7 +35,7 @@ return [
         'csv'                    => [
             'delimiter'              => ',',
             'enclosure'              => '"',
-            'line_ending'            => PHP_EOL,
+            'line_ending'            => ",",
             'use_bom'                => false,
             'include_separator_line' => false,
             'excel_compatibility'    => false,
