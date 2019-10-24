@@ -34,7 +34,7 @@ class StatGenerator{
         $this->initStats();
         $this->choosenModel::withTrashed()
         ->whereBetween('created_at', $dateRange)
-        ->with($this->getRelation())->chunk(200,function ($prospects){
+        ->with($this->getRelation())->chunk(5000,function ($prospects){
             $this->setData($prospects);
         });
     }
