@@ -24,13 +24,17 @@ class StatGenerator{
         $this->dateFormat = $dateFormat;
         $this->choosenModel = $choosenModel;
         
+        
     }
 
     public function handle(){
 
+        $dateRange = [$this->firstDate->startOfDay()->format('Y-m-d H:i:s'),$this->lastDate->endOfDay()->format('Y-m-d H:i:s')];
+
         $this->initStats();
-        
-        $this->choosenModel::withTrashed()->with($this->getRelation())->chunk(5000,function ($prospects){
+        $this->choosenModel::withTrashed()
+        ->whereBetween('created_at', $dateRange)
+        ->with($this->getRelation())->chunk(200,function ($prospects){
             $this->setData($prospects);
         });
     }
@@ -120,5 +124,6 @@ class StatGenerator{
         }
         return $period;
     }
+
 
 }

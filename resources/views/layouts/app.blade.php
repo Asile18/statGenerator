@@ -12,6 +12,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/animate.js') }}" defer></script>
+    
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -19,6 +20,9 @@
     
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/lightpick.css">
+
+
 </head>
 <body>
     <div id="app">
@@ -71,10 +75,21 @@
             </div>
         </nav>
 
+
         <main class="py-4">
             @yield('content')
         </main>
     </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+<script src="{{ asset('js/lightpick.js') }}"></script>
+<script>
+    function charger(){
+        let date = new Lightpick({ field: document.getElementById('datepicker') });
+        let date2 = new Lightpick({ field: document.getElementById('datepicker2') });
+    }
+    
+    window.onload = function(){charger();}
+</script>
 </body>
 
 </html>

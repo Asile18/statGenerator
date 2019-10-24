@@ -21,7 +21,7 @@ class Prospect extends Model
      *
      * @var array
      */
-    protected $dates = ['deleted_at','borrower_birthdate','borrower_identity_card_expired_date','borrower_housing_since','borrower_employment_since','coborrower_birthdate','coborrower_identity_card_expired_date','coborrower_housing_since','coborrower_employment_since','finished_at'];
+    protected $dates = ['created_at','updated_at','deleted_at','borrower_birthdate','borrower_identity_card_expired_date','borrower_housing_since','borrower_employment_since','coborrower_birthdate','coborrower_identity_card_expired_date','coborrower_housing_since','coborrower_employment_since','finished_at'];
 
 
     //Relations

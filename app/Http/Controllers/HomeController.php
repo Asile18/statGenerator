@@ -8,6 +8,8 @@ use App\Lib\StatGenerator;
 use Illuminate\Support\Carbon;
 use Maatwebsite\Excel\Excel;
 
+
+
 class HomeController extends Controller
 {
     
@@ -18,6 +20,8 @@ class HomeController extends Controller
     public $requestModel;
     public $test;
     public $export;
+    public $datepicker;
+    public $datepicker2;
     /**
      * Show the application dashboard.
      *
@@ -65,8 +69,18 @@ class HomeController extends Controller
         }
 
 
-        $firstDate = $this->choosenModel::orderBy('created_at', 'asc')->withTrashed()->limit(1)->first()->created_at;
-        $lastDate = Carbon::now();
+
+
+        $this->datepicker = request('datepicker');
+        $this->datepicker2 = request('datepicker2');
+        $firstDate = Carbon::createFromFormat('d/m/Y', request('datepicker'))->startOfDay();
+        $lastDate = Carbon::createFromFormat('d/m/Y', request('datepicker2'))->endOfDay();
+
+        // $firstDate = $this->choosenModel::orderBy('created_at', 'asc')->withTrashed()->limit(1)->first()->created_at;
+        // $lastDate = Carbon::now();
+
+
+        
         $wantedData=[
             'state'=>[
                 'type'=>'relation',
@@ -118,7 +132,9 @@ class HomeController extends Controller
         $this->statse = $stats->paginate(10);
         $statsView = ($this->statse)->appends([
             'dateFormat' => $this->dateFormat,
-            'requestmodel' => $this->requestModel
+            'requestmodel' => $this->requestModel,
+            'datepicker' => $this->datepicker,
+            'datepicker2' => $this->datepicker2,
         ]);
         
         return view('home',compact('statsView'));
