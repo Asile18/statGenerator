@@ -1,18 +1,3 @@
-{{-- @if ($statsView !== null)
-    @foreach ($statsView as $date  => $relations)
-    <button class="accordion"><b>{{$date}}</b></button>
-    <div class="panel">
-        @foreach ($relations as $relationName => $relationValues)
-                <h3>{{$relationName}}</h3>
-                    @foreach ($relationValues as $relationValueKey=>$relationValue )
-                        <p>{{$relationValueKey }}: {{$relationValue }}</p>
-                    @endforeach
-                    <p style="text-align: right !important; text-decoration:underline;">{{$relationName }} total: {{$relationValues->sum()}}</p>
-        @endforeach
-    </div>
-    @endforeach 
-@endif --}}
-
 @if ($statsView !== null)
 @foreach ($statsView as $date  => $relations)
 <table class="statTable">

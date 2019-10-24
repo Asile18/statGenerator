@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Prospect Viewer</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -84,8 +84,8 @@
 <script src="{{ asset('js/lightpick.js') }}"></script>
 <script>
     function charger(){
-        let date = new Lightpick({ field: document.getElementById('datepicker') });
-        let date2 = new Lightpick({ field: document.getElementById('datepicker2') });
+        let date = new Lightpick({ field: document.getElementById('datepicker') ,startDate: moment().startOf('month').add(7, 'day')});
+        let date2 = new Lightpick({ field: document.getElementById('datepicker2'),startDate: moment().add(1, 'month').endOf('month').subtract(7, 'day')});
     }
     
     window.onload = function(){charger();}
